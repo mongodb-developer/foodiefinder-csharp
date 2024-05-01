@@ -13,7 +13,7 @@ namespace FoodieFinder.Models;
 public class Restaurant
 {
     [BsonId]
-    public string? Id { get; set; }
+    public string Id { get; set; }
 
     [BsonElement("address")]
     public Address Address { get; set; }
