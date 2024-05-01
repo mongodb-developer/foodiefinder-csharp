@@ -1,5 +1,6 @@
 using FoodieFinder.Models;
 using Microsoft.EntityFrameworkCore;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace FoodieFinder;
@@ -26,6 +27,8 @@ internal class RestaurantDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity <Restaurant> ();
+        modelBuilder.Entity <Restaurant>()
+        .Property(r => r.Id)
+        .HasConversion<ObjectId>();
     }
 }
