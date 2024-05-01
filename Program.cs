@@ -22,10 +22,9 @@ IMongoCollection<Restaurant> restaurantCollection = database.GetCollection<Resta
 
 RestaurantDbContext dbContext = RestaurantDbContext.Create(database);
 
-var restaurants = dbContext.Restaurants.AsNoTracking().AsEnumerable<Restaurant>();
+var restaurants = dbContext.Restaurants.AsEnumerable<Restaurant>();
 
 foreach (var restaurant in restaurants)
 {
     Console.WriteLine($"{restaurant.Name} - {restaurant.Borough}, {restaurant.Address.Zipcode}");
 }
-
