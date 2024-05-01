@@ -44,9 +44,12 @@ public class Address
 
 public class Grade
 {
+    [BsonElement("date")]
     public DateTime? Date { get; set; }
 
-    public string? GradeAsString { get; set; }
+    [BsonElement("grade")]
+    public string? GradeLetter { get; set; }
+    [BsonElement("score")]
     public int? Score { get; set; }
 }
 

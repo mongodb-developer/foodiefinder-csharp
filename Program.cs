@@ -27,6 +27,11 @@ var restaurants = dbContext.Restaurants.AsNoTracking().Take(10).AsEnumerable<Res
 foreach (var restaurant in restaurants)
 {
     Console.WriteLine($"{restaurant.Name} - {restaurant.Borough}, {restaurant.Address.Zipcode}");
+    foreach(var grade in restaurant.Grades)
+    {
+        Console.WriteLine($"Grade: {grade.GradeLetter}, Score: {grade.Score}");
+    }
+    Console.WriteLine("--------------------");
 }
 
 Console.ReadLine();
