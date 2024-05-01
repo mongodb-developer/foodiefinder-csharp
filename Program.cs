@@ -21,3 +21,11 @@ IMongoDatabase database = mongoClient.GetDatabase("sample_restaurants");
 IMongoCollection<Restaurant> restaurantCollection = database.GetCollection<Restaurant>("restaurants");
 
 RestaurantDbContext dbContext = RestaurantDbContext.Create(database);
+
+var restaurants = dbContext.Restaurants.AsNoTracking().AsEnumerable<Restaurant>();
+
+foreach (var restaurant in restaurants)
+{
+    Console.WriteLine($"{restaurant.Name} - {restaurant.Borough}, {restaurant.Address.Zipcode}");
+}
+
