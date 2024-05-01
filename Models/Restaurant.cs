@@ -12,7 +12,8 @@ namespace FoodieFinder.Models;
 [Collection("restaurants")]
 public class Restaurant
 {
-    public string Id { get; set; }
+    [BsonId]
+    public string? Id { get; set; }
 
     [BsonElement("address")]
     public Address Address { get; set; }
@@ -26,6 +27,9 @@ public class Restaurant
     public string Name { get; set; }
     [BsonElement("restaurant_id")]
     public string RestaurantId { get; set; }
+
+    [BsonElement("isTestData")]
+    public bool? IsTestData { get; set; }
 
 }
 
